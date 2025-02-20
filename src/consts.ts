@@ -1,6 +1,6 @@
 import type { Attributes, Class } from "./types";
 
-export const ATTRIBUTE_LIST = [
+export const ATTRIBUTE_LIST: (keyof Attributes)[]  = [
     'Strength',
     'Dexterity',
     'Constitution',
@@ -8,6 +8,7 @@ export const ATTRIBUTE_LIST = [
     'Wisdom',
     'Charisma',
 ];
+
 
 export const CLASS_LIST: Record<Class, Attributes> = {
     'Barbarian': {
@@ -36,7 +37,14 @@ export const CLASS_LIST: Record<Class, Attributes> = {
     },
 }
 
-export const SKILL_LIST = [
+
+interface ISkill {
+    name: string,
+    attributeModifier: keyof Attributes
+}
+
+
+export const SKILL_LIST: ISkill[] = [
     { name: 'Acrobatics', attributeModifier: 'Dexterity' },
     { name: 'Animal Handling', attributeModifier: 'Wisdom' },
     { name: 'Arcana', attributeModifier: 'Intelligence' },
