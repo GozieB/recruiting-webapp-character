@@ -2,7 +2,7 @@ import { useDispatch } from 'react-redux'
 
 import { ATTRIBUTE_LIST } from '../consts';
 import { useAppSelector } from '../hooks/utils';
-import { decrementAttribute, incrementAttribute } from "../reducers/stats"
+import { decrementAttribute, incrementAttribute } from "../reducers/game"
 import { getAttributeModifierValue } from '../utils';
 
 interface AttributeTextProps {
@@ -36,7 +36,7 @@ interface AttributeBlockProps {
 
 export default function AttributeBlock({ name }: AttributeBlockProps) {
 
-    const characterState = useAppSelector((state) => state.characters);
+    const characterState = useAppSelector((state) => state.game);
     const characters = characterState.data;
     const dispatch = useDispatch();
 

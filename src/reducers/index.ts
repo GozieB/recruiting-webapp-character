@@ -1,11 +1,11 @@
 import { combineReducers } from 'redux'
 
-import statsReducer from './stats'
+import gameReducer from './game'
 
 
 // Add firebase to reducers
 const rootReducer = combineReducers({
-  characters: statsReducer,
+  game: gameReducer,
 })
 
 export default rootReducer

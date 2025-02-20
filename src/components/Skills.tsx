@@ -2,7 +2,7 @@ import { useDispatch } from 'react-redux'
 
 import { SKILL_LIST } from '../consts';
 import { useAppSelector } from '../hooks/utils';
-import { decrementSkill, incrementSkill } from '../reducers/stats';
+import { decrementSkill, incrementSkill } from '../reducers/game';
 import { getAttributeModifierValue } from '../utils';
 
 interface SkillTextProps {
@@ -35,7 +35,7 @@ interface SKillsBlockProps {
 }
 
 export default function SkillSBlock({ charName }: SKillsBlockProps) {
-    const characterState = useAppSelector((state) => state.characters);
+    const characterState = useAppSelector((state) => state.game);
     const dispatch = useDispatch();
     const characters = characterState.data;
     const currentCharacterSKill = characters[charName].skills;
