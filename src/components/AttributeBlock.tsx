@@ -2,7 +2,7 @@ import { useDispatch } from 'react-redux'
 
 import { ATTRIBUTE_LIST } from '../consts';
 import { useAppSelector } from '../hooks/utils';
-import { decrementAttribute,incrementAttribute } from "../reducers/stats"
+import { decrementAttribute, incrementAttribute } from "../reducers/stats"
 import { getAttributeModifierValue } from '../utils';
 
 interface AttributeTextProps {
@@ -18,10 +18,12 @@ interface AttributeTextProps {
 function AttributeText({ name, val, modifierVal, onDecrementHandler, onIncrementHandler }: AttributeTextProps) {
 
     return (
-        <div>
-            {name}: {val} (Modifier: {modifierVal})
-            <button onClick={onIncrementHandler}>+</button>
-            <button onClick={onDecrementHandler}>-</button>
+        <div className='input-group mb-3'>
+            <span>{name}: {val} (Modifier: {modifierVal})</span>
+            <div className="btn-group" role="group" aria-label="Basic example">
+                <button type="button" className="btn btn-secondary btn-sm" onClick={onIncrementHandler}>+</button>
+                <button type="button" className="btn btn-secondary btn-sm" onClick={onDecrementHandler}>-</button>
+            </div>
         </div>
     )
 
@@ -40,7 +42,7 @@ export default function AttributeBlock({ name }: AttributeBlockProps) {
 
 
     return (
-        <div className="block">
+        <div className="col">
             <div>ATTRIBUTES</div>
             {
                 ATTRIBUTE_LIST.map((attr, index) => {

@@ -29,11 +29,14 @@ export default function WelcomePage () {
                 <h1>React Coding Exercise</h1>
             </header>
             <section className="App-section">
+                <div className="container">
                 {
                     Object.keys(characters).map((character, index) => {
                         return (<CharacterWidget key={index} characterName={character} />)
                     })
                 }
+                </div>
+            
             </section>
         </div>)
 }

@@ -27,20 +27,16 @@ export default function CharacterWidget({ characterName }: CharacterBlockProps) 
     }
 
     return (
-        <>
-            <div className='row'>Character: {characterName}</div>
-            <button onClick={() => { dispatch(saveCharacter())}}>Save Character</button>
-            <br />
+        <div className="row text-center">
+            <div>Character: {characterName}</div>
+            <button className="btn btn-secondary btn-sm" onClick={() => { dispatch(saveCharacter())}}>Save Character</button>
             <div className='row'>
-                <div className='row'>
                     <AttributeBlock name={characterName} />
                     <ClassBlock characterName={characterName} course={course} onClassTextClick={(courseName) => { handleCourseSelection(courseName) }} />
                     {showRequirement && <RequirementBlock reqData={CLASS_LIST[course]} onCloseHandler={() => { setShowRequirement(!showRequirement) }} />}
                     <SkillSBlock charName={characterName} />
-                </div>
             </div>
-        </>
-
+        </div>
     )
 
 }

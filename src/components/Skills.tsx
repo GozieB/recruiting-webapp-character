@@ -2,7 +2,7 @@ import { useDispatch } from 'react-redux'
 
 import { SKILL_LIST } from '../consts';
 import { useAppSelector } from '../hooks/utils';
-import { decrementSkill,incrementSkill } from '../reducers/stats';
+import { decrementSkill, incrementSkill } from '../reducers/stats';
 import { getAttributeModifierValue } from '../utils';
 
 interface SkillTextProps {
@@ -18,11 +18,13 @@ interface SkillTextProps {
 function SkillText({ name, val, modifierName, modifierVal, totalVal, onDecrementHandler, onIncrementHandler }: SkillTextProps) {
 
     return (
-        <div>
-            {name}: {val} (Modifier: {modifierName}): {modifierVal}
-            <button onClick={onIncrementHandler}>+</button>
-            <button onClick={onDecrementHandler}>-</button>
-            total: {totalVal}
+        <div className='input-group mb-3'>
+            <span>{name}: {val} (Modifier: {modifierName}): {modifierVal}</span>
+            <div className="btn-group" role="group" aria-label="Basic example">
+                <button className="btn btn-secondary btn-sm" onClick={onIncrementHandler}>+</button>
+                <button className="btn btn-secondary btn-sm" onClick={onDecrementHandler}>-</button>
+            </div>
+            <span>total: {totalVal}</span>
         </div>
     )
 
@@ -43,10 +45,9 @@ export default function SkillSBlock({ charName }: SKillsBlockProps) {
     }
 
     return (
-        <div className="block">
+        <div className="col">
             <div>SKILLS</div>
             <div>Total skill points available: {getSkillPoint()}</div>
-            <br />
             {
                 SKILL_LIST.map((skill, index) => {
                     const modifierVal = getAttributeModifierValue(characters[charName].attributes[skill.attributeModifier])
@@ -60,8 +61,8 @@ export default function SkillSBlock({ charName }: SKillsBlockProps) {
                                 dispatch(incrementSkill({ character: charName, skill: skill.name }))
                             }}
                             onDecrementHandler={() => {
-                                    dispatch(decrementSkill({ character: charName, skill: skill.name }))
-                                }
+                                dispatch(decrementSkill({ character: charName, skill: skill.name }))
+                            }
                             }
                             modifierVal={modifierVal}
                             totalVal={totalVal}
