@@ -20,8 +20,6 @@ export default function CharacterWidget({ characterName }: CharacterBlockProps) 
 
     const dispatch = useAppDispatch();
 
-    console.log("current course", course)
-
     // Update a specific item's count
     function handleCourseSelection(course: Class) {
         setCurrentCourse(course)

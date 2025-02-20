@@ -65,3 +65,5 @@ export const SKILL_LIST: ISkill[] = [
     { name: 'Survival', attributeModifier: 'Wisdom' },
 
 ]
+
+export const MAX_ATTRIBUTE = 70

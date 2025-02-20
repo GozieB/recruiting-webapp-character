@@ -2,18 +2,16 @@ import type { PayloadAction } from '@reduxjs/toolkit'
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from 'axios';
 
+import { MAX_ATTRIBUTE } from '../consts';
 import { RootState } from '../store';
 import type { Attributes } from "../types";
 import { getAttributeModifierValue } from '../utils';
 
-const MAX_ATTRIBUTE = 70
+
 const USER = `gozieb`
 
 export const fetchCharactersWithStats = createAsyncThunk("fetchCharacterWithStats",
     async () => {
-
-
-
         const url = `https://recruiting.verylongdomaintotestwith.ca/api/${USER}/character`
         const axiosConfig = {
             headers: {
@@ -31,7 +29,6 @@ export const fetchCharactersWithStats = createAsyncThunk("fetchCharacterWithStat
 
 export const saveCharacter = createAsyncThunk("saveCharacter",
     async (_, thunkApi) => {
-
         const url = `https://recruiting.verylongdomaintotestwith.ca/api/${USER}/character`
         const axiosConfig = {
             headers: {
@@ -45,8 +42,6 @@ export const saveCharacter = createAsyncThunk("saveCharacter",
     }
 
 )
-
-// type Character = Record<string, Attributes>;
 
 interface CharactersState {
     status: 'idle' | 'loading' | "succeeded" | "failed"
