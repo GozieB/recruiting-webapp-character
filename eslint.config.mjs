@@ -1,6 +1,7 @@
 import { FlatCompat } from "@eslint/eslintrc";
 import js from "@eslint/js";
 import eslint from '@eslint/js';
+import stylisticJs from "@stylistic/eslint-plugin-js"
 import pluginPromise from 'eslint-plugin-promise'
 import react from "eslint-plugin-react";
 import simpleImportSort from "eslint-plugin-simple-import-sort";
@@ -33,6 +34,7 @@ export default tseslint.config(
             react,
             "unused-imports": unusedImports,
             "simple-import-sort": simpleImportSort,
+            "@stylistic/js": stylisticJs
         },
 
         languageOptions: {
@@ -71,7 +73,8 @@ export default tseslint.config(
                 ],
             }],
             "simple-import-sort/exports": ["error"],
-            "react/react-in-jsx-scope": "off"
+            "react/react-in-jsx-scope": "off",
+            "@stylistic/js/eol-last": ["error", "always"]
         },
     }
 );
