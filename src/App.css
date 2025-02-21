@@ -44,24 +44,45 @@
   color: red
 }
 
+.character-item {
+  border: 1px solid;
+  padding: 0.5rem;
+  margin: 1rem 0;
+}
+
+.action-btn {
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
 .skillSelect * {
-	background-color: white;
-	color: black;
-	z-index: 10000000000rem !important;
+  background-color: white;
+  color: black;
+  z-index: 10000000000rem !important;
+}
+
+.character-name {
+  padding: 1rem 0;
+  border-bottom: 1px solid;
+  margin: 0 0 1rem 0;
 }
 
 .form-dropdown-value {
-	display: flex;
-	/* z-index: 10000000000rem !important; */
+  display: flex;
+  height: 3rem;
 
-	& > div {
-		width: 15rem;
-		z-index: 10000 !important;
-	}
+  button {
+    height: 2.5rem;
+  }
+
+  &>div {
+    width: 15rem;
+    z-index: 10000 !important;
+  }
 }
 
 
-.minus-buttons-group{
+.minus-buttons-group {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -73,30 +94,73 @@
 }
 
 .plus-minus-buttons {
-	display: flex;
+  display: flex;
   align-items: center;
   border-radius: 1000rem;
   margin-left: 1rem;
   background-color: white;
   color: black;
 
-	.plus {
-		/* background-color: green; */
-    width: 2rem;
-	}
-	.minus {
-		/* background-color: red; */
-    width: 2rem;
-	}
-  .total-value{
+  .plus {
+    /* background-color: green; */
     width: 2rem;
   }
+
+  .minus {
+    /* background-color: red; */
+    width: 2rem;
+  }
+
+  .total-value {
+    width: 2rem;
+  }
+}
+
+.attribute-item {
+  border: 1px solid;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .title {
+    width: 100%;
+    padding: 1rem 0;
+    /* background-color: #282c34; */
+  }
+
+}
+
+.class-details {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2rem;
+  justify-content: flex-start;
+  align-items: center;
+  width: 10rem;
+
+}
+
+.character-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.class-title {
+  border-bottom: 1px solid;
+}
+
+.result {
+  margin-top: 1rem;
 }
 
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }

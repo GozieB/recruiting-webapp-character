@@ -23,8 +23,8 @@ export default function SkillCheckResult() {
     }
 
     return (
-        <div className="card">
-            <div className="card-body">
+        <div>
+            <div className="card-body result">
                 <div>
                     Character: {gameState.result.name}
                 </div>
