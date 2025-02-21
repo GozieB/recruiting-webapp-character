@@ -9,6 +9,8 @@ import { getAttributeModifierValue } from '../utils';
 
 
 const USER = `gozieb`
+const MAX_NUM =  20;
+const MIN_NUM = 1;
 
 export const fetchCharactersWithStats = createAsyncThunk("fetchCharacterWithStats",
     async () => {
@@ -36,7 +38,7 @@ export const saveCharacter = createAsyncThunk("saveCharacter",
             }
         }
         const state =  thunkApi.getState() as RootState;
-        const data  = state.characters.data
+        const data  = state.game.data
         await axios.post(url, data,  axiosConfig)
 
     }
@@ -50,11 +52,20 @@ interface CharactersState {
             skills: Record<string, number>
         }>
     error?: string
+    showResult: boolean,
+    result : {
+        name?: string
+        score?: number
+        skill?: string
+        dcValue?: number
+    }
 }
 
 const initialState = {
     data: {},
-    status: "idle"
+    status: "idle",
+    result: {},
+    showResult: false
 
 } satisfies CharactersState as CharactersState
 
@@ -67,11 +78,27 @@ interface ISkillAction {
     character: string
     skill: string
 }
+interface IRolDiceAction {
+    character: string
+    skill: string
+    dcValue: number
+}
 
 const characterSlice = createSlice({
     name: "characters",
     initialState: initialState,
     reducers: {
+        toggleResultScreen: (state) => {
+            state.showResult = !state.showResult
+        },
+        rollDiceForCharacter: (state, action: PayloadAction<IRolDiceAction>) => {
+            // Update current character and update the score
+            state.result.name = action.payload.character
+            state.result.score = Math.floor(Math.random() * (MAX_NUM - MIN_NUM + 1)) + MIN_NUM
+            state.result.skill = action.payload.skill
+            state.result.dcValue = action.payload.dcValue
+            state.showResult = true
+        },
         incrementAttribute: (state, action: PayloadAction<IAttributeAction>) => {
             const totalAttribute = Object
                 .values(state.data[action.payload.character].attributes)
@@ -150,4 +177,4 @@ const characterSlice = createSlice({
 })
 
 export default characterSlice.reducer;
-export const { incrementAttribute, decrementAttribute, decrementSkill, incrementSkill } = characterSlice.actions;
+export const { incrementAttribute, decrementAttribute, decrementSkill, incrementSkill, rollDiceForCharacter, toggleResultScreen } = characterSlice.actions;

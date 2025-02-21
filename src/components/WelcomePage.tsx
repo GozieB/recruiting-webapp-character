@@ -1,24 +1,25 @@
 import { useEffect } from "react"
 
 import { useAppDispatch, useAppSelector } from '../hooks/utils';
-import { fetchCharactersWithStats } from '../reducers/stats';
+import { fetchCharactersWithStats, saveCharacter, toggleResultScreen } from '../reducers/game';
 
 import CharacterWidget from './CharacterWidgetSection';
+import SkillCheckResult from "./SkillCheckResult";
 
 
-export default function WelcomePage () {
+export default function WelcomePage() {
 
     const dispatch = useAppDispatch();
-    const characterState = useAppSelector((state) => state.characters);
-    const isLoading = characterState.status === "loading";
-    const characters = characterState.data;
+    const gameState = useAppSelector((state) => state.game);
+    const isLoading = gameState.status === "loading";
+    const characters = gameState.data;
 
     useEffect(() => {
         dispatch(fetchCharactersWithStats());
     }, [dispatch])
 
 
-    if (isLoading){
+    if (isLoading) {
         return (<div>Loading....</div>)
     }
 
@@ -30,13 +31,21 @@ export default function WelcomePage () {
             </header>
             <section className="App-section">
                 <div className="container">
-                {
-                    Object.keys(characters).map((character, index) => {
-                        return (<CharacterWidget key={index} characterName={character} />)
-                    })
-                }
+                    <div className="btn-group">
+                        <button className="btn btn-secondary btn-sm" onClick={() => { dispatch(saveCharacter()) }}>Save All Character</button>
+                        <button onClick={()=>{ dispatch(toggleResultScreen())}}>Toggle Skilll Check Result</button>
+                    </div>
+
                 </div>
-            
+                {(gameState.showResult) && <SkillCheckResult />}
+                <div className="container">
+                    {
+                        Object.keys(characters).map((character, index) => {
+                            return (<CharacterWidget key={index} characterName={character} />)
+                        })
+                    }
+                </div>
+
             </section>
         </div>)
 }
