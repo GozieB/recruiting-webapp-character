@@ -3,18 +3,16 @@ import { configureStore } from '@reduxjs/toolkit';
 import { render, screen, waitFor } from '@testing-library/react';
 
 import SkillCheckResult from './SkillCheckResult';
+import {store} from "../store"
 
-test.skip('Skill Check', async () => {
-    const mockStore = configureStore({ reducer: {}})
+test('Skill Check', async () => {
     render(
-        <Provider store={mockStore}  >
+        <Provider store={store}  >
             <SkillCheckResult />
         </Provider>
-
     );
     await waitFor(() => {
-        const divElementWithAttributeText = screen.getByText(/Strength/i);
+        const divElementWithAttributeText = screen.getByText(/Please roll dice for character to see result/i);
         expect(divElementWithAttributeText).toBeInTheDocument();
-    })
-
+    });
 });
