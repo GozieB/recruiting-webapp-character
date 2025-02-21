@@ -11,7 +11,7 @@ interface ClassBlockProps {
 
 export default function ClassBlock({ characterName, course, onClassTextClick }: ClassBlockProps) {
 
-    const characterState = useAppSelector((state) => state.characters);
+    const characterState = useAppSelector((state) => state.game);
     const characters = characterState.data;
     const courses = Object.keys(CLASS_LIST) as Class[]
 
