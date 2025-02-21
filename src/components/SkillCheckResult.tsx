@@ -16,6 +16,12 @@ export default function SkillCheckResult() {
         return (  totalSkill + gameState.result.score >= gameState.result.dcValue) ? "Success" : "Failed";
     }
 
+    if (typeof gameState.result.name !== "string"){
+        return(<div className="alert alert-primary" role="alert">
+            Please roll dice for character to see result
+          </div>)
+    }
+
     return (
         <div className="card">
             <div className="card-body">
@@ -34,8 +40,6 @@ export default function SkillCheckResult() {
                 <div>
                     Result: {computeResult()}
                 </div>
-                
-
             </div>
 
         </div>)

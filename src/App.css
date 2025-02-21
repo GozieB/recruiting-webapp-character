@@ -52,7 +52,7 @@
 
 .form-dropdown-value {
 	display: flex;
-	z-index: 10000000000rem !important;
+	/* z-index: 10000000000rem !important; */
 
 	& > div {
 		width: 15rem;
@@ -66,7 +66,7 @@
   justify-content: space-between;
   align-items: center;
   gap: 1rem;
-  width: 20rem;
+  width: 28rem;
   border: 1px solid #494c50;
   padding: .5rem;
   border-radius: .5rem;

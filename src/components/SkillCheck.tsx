@@ -44,9 +44,7 @@ export default function SkillCheck({ charName }: ISkillCheckProps) {
                     <div className="form-group mx-sm-3 mb-2">
                         <input type="number" value={dcValue} onChange={(evt) => { setDCValue(parseInt(evt.target.value)) }} className="form-control" placeholder="Please enter a number" />
                     </div>
-                </div>
-
-                <button className="btn btn-secondary btn-sm"
+                    <button className="btn btn-secondary btn-sm"
                     onClick={() => {
                         dispatch(rollDiceForCharacter({
                             character: charName, dcValue: dcValue,
@@ -55,6 +53,7 @@ export default function SkillCheck({ charName }: ISkillCheckProps) {
                     }}>
                     Roll
                 </button>
+                </div>
             </div>
         </div>
     )
