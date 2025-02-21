@@ -45,7 +45,7 @@ export default function SkillSBlock({ charName }: SKillsBlockProps) {
     }
 
     return (
-        <div className="col">
+        <div className="col attribute-item">
             <div>SKILLS</div>
             <div>Total skill points available: {getSkillPoint()}</div>
             {

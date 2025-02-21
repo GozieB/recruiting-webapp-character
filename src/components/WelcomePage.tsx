@@ -31,9 +31,9 @@ export default function WelcomePage() {
             </header>
             <section className="App-section">
                 <div className="container">
-                    <div className="btn-group">
+                    <div className="btn-group action-btn">
                         <button className="btn btn-secondary btn-sm" onClick={() => { dispatch(saveCharacter()) }}>Save All Character</button>
-                        <button onClick={()=>{ dispatch(toggleResultScreen())}}>Toggle Skilll Check Result</button>
+                        <button className="btn btn-secondary btn-sm toggle-btn" onClick={()=>{ dispatch(toggleResultScreen())}}>Toggle Skilll Check Result</button>
                     </div>
 
                 </div>

@@ -27,8 +27,8 @@ export default function ClassBlock({ characterName, course, onClassTextClick }: 
     }
 
     return (
-        <div className="col">
-            <div>CLASSES</div>
+        <div>
+            <div className='class-title'>CLASSES</div>
             {
                 courses.map((key, index) => {
                     return (

@@ -19,9 +19,10 @@ function AttributeText({ name, val, modifierVal, onDecrementHandler, onIncrement
 
     return (
         <div className="input-group mb-3 minus-buttons-group">
-            <span>{name}: {val} (Modifier: {modifierVal})</span>
+            <span>{name}(Modifier: {modifierVal})</span>
             <div className="btn-group plus-minus-buttons" role="group" aria-label="Update Attribute value">
                 <button type="button" className="btn btn-secondary btn-sm" onClick={onIncrementHandler}>+</button>
+                <span className="total-value">{val}</span>
                 <button type="button" className="btn btn-secondary btn-sm" onClick={onDecrementHandler}>-</button>
             </div>
         </div>
@@ -42,8 +43,8 @@ export default function AttributeBlock({ name }: AttributeBlockProps) {
 
 
     return (
-        <div className="col">
-            <div>ATTRIBUTES</div>
+        <div className="col attribute-item">
+            <div className="title">ATTRIBUTES</div>
             {
                 ATTRIBUTE_LIST.map((attr, index) => {
                     return (<AttributeText
