@@ -44,6 +44,55 @@
   color: red
 }
 
+.skillSelect * {
+	background-color: white;
+	color: black;
+	z-index: 10000000000rem !important;
+}
+
+.form-dropdown-value {
+	display: flex;
+	z-index: 10000000000rem !important;
+
+	& > div {
+		width: 15rem;
+		z-index: 10000 !important;
+	}
+}
+
+
+.minus-buttons-group{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  width: 20rem;
+  border: 1px solid #494c50;
+  padding: .5rem;
+  border-radius: .5rem;
+}
+
+.plus-minus-buttons {
+	display: flex;
+  align-items: center;
+  border-radius: 1000rem;
+  margin-left: 1rem;
+  background-color: white;
+  color: black;
+
+	.plus {
+		/* background-color: green; */
+    width: 2rem;
+	}
+	.minus {
+		/* background-color: red; */
+    width: 2rem;
+	}
+  .total-value{
+    width: 2rem;
+  }
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

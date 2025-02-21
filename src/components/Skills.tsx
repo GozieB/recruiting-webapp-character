@@ -18,13 +18,13 @@ interface SkillTextProps {
 function SkillText({ name, val, modifierName, modifierVal, totalVal, onDecrementHandler, onIncrementHandler }: SkillTextProps) {
 
     return (
-        <div className='input-group mb-3'>
+        <div className="input-group mb-3 minus-buttons-group">
             <span>{name}: {val} (Modifier: {modifierName}): {modifierVal}</span>
-            <div className="btn-group" role="group" aria-label="Basic example">
-                <button className="btn btn-secondary btn-sm" onClick={onIncrementHandler}>+</button>
-                <button className="btn btn-secondary btn-sm" onClick={onDecrementHandler}>-</button>
+            <div className="btn-group plus-minus-buttons" role="group" aria-label="Update skill">
+                <button className="btn btn-secondary btn-sm plus" onClick={onIncrementHandler}>+</button>
+                <span className="total-value">{totalVal}</span>
+                <button className="btn btn-secondary btn-sm minus" onClick={onDecrementHandler}>-</button>
             </div>
-            <span>total: {totalVal}</span>
         </div>
     )
 
